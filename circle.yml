@@ -11,4 +11,4 @@ deployment:
   production:
     branch: master
     commands:
-      - rsync -avz -e 'ssh -p 7826' . circleci@137.74.112.216:/home/circleci/tech-test
+      - ssh -p 7826 circleci@137.74.112.216 'sh ~/tech-test-emberjs/vendor/deploy_master.sh'
