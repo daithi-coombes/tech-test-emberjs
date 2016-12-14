@@ -1,0 +1,14 @@
+## Customize the test machine
+machine:
+
+  # Add some environment variables
+  environment:
+    CIRCLE_ENV: test
+    NODE_ENV: test
+
+## Customize deployment commands
+deployment:
+  production:
+    branch: master
+    commands:
+      - rsync -avz . circleci@137.74.112.216:/home/circleci/tech-test
