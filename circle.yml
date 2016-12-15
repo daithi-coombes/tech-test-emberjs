@@ -11,4 +11,4 @@ deployment:
   production:
     branch: master
     commands:
-      - ssh -p 7826 circleci@137.74.112.216 'sh ~/tech-test-emberjs/vendor/deploy_master.sh'
+      - ssh -p 7826 -t circleci@137.74.112.216 'bash -i -c "~/tech-test-emberjs/vendor/deploy_master.sh"'

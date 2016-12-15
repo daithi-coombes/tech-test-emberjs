@@ -1,5 +1,7 @@
 #!/bin/bash
 
 cd ~/tech-test-emberjs
-git checkout $CURRENT_COMMIT
+
+git checkout master
+git pull
 npm install
