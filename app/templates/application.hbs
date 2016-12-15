@@ -1,0 +1,24 @@
+<header>
+  <div class="title"><h1>City Weather . io</h1></div>
+  <div class="search">
+    <form class="form-horizontal" {{action 'getCity' on="submit"}}>
+      <div class="form-group">
+        <div class="col-md-6">
+          <input type="text" name="city">
+        </div><div class="col-md-6">
+          <button type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</header>
+<div class="container">
+  <div class="body">
+    <div class="panel panel-danger">
+    {{#each model.errors.name as |error|}}
+      {{error.message}}
+    {{/each}}
+    </div>
+    {{outlet}}
+  </div>
+</div>
