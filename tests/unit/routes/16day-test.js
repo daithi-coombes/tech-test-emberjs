@@ -16,5 +16,5 @@ test('will redirect with error if no post request', function(assert){
       assert.equal(routeName, 'index', 'redirect if no post data');
     }
   });
-  route.beforeModel();
+  route.beforeModel({queryParams: null});
 });

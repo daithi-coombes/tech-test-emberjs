@@ -9,8 +9,10 @@ export default Ember.Route.extend({
     const params = transition.queryParams;
 
     if(!params || !params.city){
+      console.error('City param not passed. Redirecting to index');
       this.transitionTo('index');
     }
+
   },
 
   model(){
