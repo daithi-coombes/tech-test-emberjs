@@ -1,19 +1,22 @@
 {
   "name": "tech-test",
   "version": "0.0.0",
-  "description": "Small description for tech-test goes here",
+  "description": "Tech test for job position",
   "license": "MIT",
-  "author": "",
+  "author": "Daithi Coombes <webeire@gmail.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/daithi-coombes/tech-test-emberjs",
   "scripts": {
     "build": "ember build",
     "postinstall": "bower install",
     "start": "ember server",
     "test": "ember test"
+  },
+  "dependencies": {
+    "bower": "^1.8.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -43,5 +46,5 @@
   "engines": {
     "node": ">= 0.12.0"
   },
-  "private": true
+  "private": true,
 }

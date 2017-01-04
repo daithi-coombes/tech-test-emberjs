@@ -9,7 +9,27 @@ machine:
     CIRCLE_ENV: test
     NODE_ENV: test
 
-## Customize deployment commands
+
+# as per: https://gist.github.com/citrus/cc1f7d55da8abc82ed0a
+dependencies:
+  pre:
+    - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+    - npm config set spin false
+    - npm install -g npm
+    - npm install -g bower
+  override:
+    - npm install
+    - bower install
+  cache_directories:
+    - "node_modules"
+    - "bower_components"
+
+test:
+  override:
+    - npm test
+# end as per
+
+# Customize deployment commands
 deployment:
   production:
     branch: master
