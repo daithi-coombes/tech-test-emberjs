@@ -18,14 +18,20 @@ module.exports = function(environment) {
     },
 
     APP: function(){
-      try{
-        let APP = require('./APP');
-        return APP(environment);
-      }catch(e){
-        const msg = 'No configuration setup up.\nCreate `config/APP.JS` from `config/APP.dist.js`';
-        console.error(msg);
-        throw new Error(msg);
+
+      // load config file (development & production)
+      if(environment!=='test'){
+        try{
+          let APP = require('./APP');
+          return APP(environment);
+        }catch(e){
+          const msg = 'missing/invalid configuration.\nCreate `config/APP.JS` from `config/APP.dist.js`';
+          console.error(msg);
+          throw new Error(msg);
+        }
       }
+
+      return {};
     }(),
   };
 
@@ -38,6 +44,12 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+
+    ENV.APP.openweathermap = {
+      appid: process.env.OWM_APPID,
+      host: process.env.OWM_HOST,
+    },
+
     // Testem prefers this...
     ENV.locationType = 'none';
 

@@ -1,13 +1,9 @@
 # tech-test
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a technical test for a job postition.
 
 ## Prerequisites
 
-You will need the following things properly installed on your computer.
-
-* [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with NPM)
 * [Bower](https://bower.io/)
 * [Ember CLI](https://ember-cli.com/)
@@ -15,38 +11,39 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd tech-test`
-* `npm install`
-* `bower install`
+```bash
+npm install
+```
 
 ## Running / Development
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
+```bash
+ember serve
+```
 
 ### Running Tests
 
-* `ember test`
-* `ember test --server`
+```bash
+ember test
+```
+or
+```bash
+ember test --server
+```
 
-### Building
+# Notes
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+### configuration loading
 
-### Deploying
+Generally speaking test & build parameters should be specified using environment
+variables, where as end user / development should use config files. For this
+reason I have add to the `config/environment.js` such that:
 
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+ - Production: `APP.dist.js`, as the project is open source not every user will
+ have knowledge, or be willing to, set environment variables. Otherwise, eg with
+ in-house services/servlets, environment variables would be used due to build
+ steps when pushing to prod.
+ - Development: `APP.dist.js`, using a git hidden config file for development
+ makes it much easier to change machines and for portability of a sprints code.
+ - Test: `process.ENV`, as it has a build step and none of the other cases above
+ apply.
