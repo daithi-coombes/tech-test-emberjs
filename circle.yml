@@ -1,6 +1,9 @@
 ## Customize the test machine
 machine:
 
+  node:
+    version: 6.9.0
+
   # Add some environment variables
   environment:
     CIRCLE_ENV: test
